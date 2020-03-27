@@ -1,0 +1,17 @@
+{
+  "name": "foodrecipe",
+  "version": "1.0.0",
+  "description": "FoodRecipe App",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack"
+  },
+  "author": "Chris Nguyen",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {}
+}
