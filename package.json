@@ -1,17 +1,31 @@
 {
-  "name": "foodrecipe",
+  "name": "recipesearchapp",
   "version": "1.0.0",
   "description": "FoodRecipe App",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack"
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
   },
   "author": "Chris Nguyen",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
+    "html-webpack-plugin": "^4.0.2",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monksedo/RecipeApp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/monksedo/RecipeApp/issues"
+  },
+  "homepage": "https://github.com/monksedo/RecipeApp#readme"
 }
