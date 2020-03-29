@@ -1,4 +1,4 @@
 // Global app controller
-import num from './test';
+import hellowebpack from './test.js';
 
-console.log(`I imported ${num} from another module!`);
+hellowebpack();
