@@ -1,4 +1,10 @@
 // Global app controller
-import hellowebpack from './test.js';
+import test from './test';
+// import num from './test';
 
-hellowebpack();
+console.log(`I imported ${test.num()} from index.js module!`);
+console.log('-----------------------------------------------');
+
+test.hellowebpack();
+console.log(`More num to print ${test.num()}, ${test.num1()}`);
+
