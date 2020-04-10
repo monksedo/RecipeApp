@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack",
+    "dev": "webpack --mode development",
     "start": "webpack-dev-server --mode development --open"
   },
   "repository": {
@@ -18,8 +18,13 @@
     "url": "https://github.com/monksedo/RecipeApp/issues"
   },
   "homepage": "https://github.com/monksedo/RecipeApp#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@babel/polyfill": "^7.8.7"
+  },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
     "html-webpack-plugin": "^4.0.4",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",

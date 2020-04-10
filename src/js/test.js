@@ -9,6 +9,9 @@ const num = () => {
     return x;
 }
 
-const num1 = () => 55555;
+const num1 = () => 555559999988888;
 
 export default { hellowebpack, num, num1 };
+
+let variable1 = 12345;
+let variable2 = 'This is a strong in ES6';
