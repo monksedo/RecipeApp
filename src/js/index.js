@@ -1,10 +1,37 @@
-// Global app controller
-import test from './test';
-// import num from './test';
+import Search from './models/Search';
+import * as searchView from './views/searchView';
+import { elements } from './views/base';
 
-console.log(`I imported ${test.num()} from index.js module!`);
-console.log('-----------------------------------------------');
+/*****************************
+ * Global state of the app
+ * - Search object
+ * - Current recipe object
+ * - Shopping list object
+ * - Liked recipes
+ */
+const state = {};
 
-test.hellowebpack();
-console.log(`More num to print ${test.num()}, ${test.num1()}`);
+const controlSearch = async () => {
+   // 1. Get query from view
+   const query = searchView.getInput();
 
+   if (query) {
+      // 2. New search object, add to state
+      state.search = new Search(query);
+
+      // 3. Prepare UI for results
+
+      // 4. Search for recipes
+      await state.search.getResults();
+
+      // 5. Render results on UI
+      searchView.renderResults(state.search.result);
+      console.log(state.search.result);
+
+   }
+}
+
+elements.searchForm.addEventListener('submit', e => {
+   e.preventDefault();
+   controlSearch();
+});

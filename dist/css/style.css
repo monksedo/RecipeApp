@@ -19,7 +19,7 @@ body {
   font-weight: 400;
   line-height: 1.6;
   color: #655A56;
-  background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
+  background-image: linear-gradient(to right bottom, #9e0f62, #750647);
   /* background-image: linear-gradient(to right bottom, #588af5, #201df3); */
   background-size: cover;
   background-repeat: no-repeat;
@@ -39,7 +39,7 @@ body {
   @media only screen and (max-width: 68.75em) {
     .container {
       width: 100%;
-      margin: 0;
+      margin: 0 auto;
       border-radius: 0; } }
 
 .btn, .btn-small, .btn-small:link, .btn-small:visited {

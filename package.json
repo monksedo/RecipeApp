@@ -19,7 +19,10 @@
   },
   "homepage": "https://github.com/monksedo/RecipeApp#readme",
   "dependencies": {
-    "@babel/polyfill": "^7.8.7"
+    "@babel/polyfill": "^7.8.7",
+    "axios": "^0.19.2",
+    "core-js": "^3.6.5",
+    "regenerator-runtime": "^0.13.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
