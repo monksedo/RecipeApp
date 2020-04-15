@@ -1,14 +1,18 @@
+// Make DOM lemement list available to external modules
 export const elements = {
    searchForm: document.querySelector('.search'),
    searchInput: document.querySelector('.search__field'),
    searchResult: document.querySelector('.results'),
-   resultList: document.querySelector('.results__list')
+   resultList: document.querySelector('.results__list'),
+   resultPage: document.querySelector('.results__pages'),
 };
 
+// make loader string available to external modules
 export const elementStings = {
    loader: 'loader',
 }
 
+// Generate HTML class and icon loader 
 export const renderLoader = parent => {
    const loader = `
       <div class="loader">
@@ -20,6 +24,7 @@ export const renderLoader = parent => {
    parent.insertAdjacentHTML('afterbegin', loader);
 };
 
+// Remove the loader progress icon
 export const clearLoader = () => {
    const loader = document.querySelector(`.${elementStings.loader}`);
    if (loader) loader.parentElement.removeChild(loader);
