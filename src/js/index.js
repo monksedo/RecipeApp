@@ -30,7 +30,6 @@ const controlSearch = async () => {
       // 5. Render results on UI
       clearLoader();
       searchView.renderResults(state.search.result);
-      console.log(state.search.result);
    }
 }
 
@@ -46,7 +45,5 @@ elements.searchResult.addEventListener('click', e => {
       const goToPage = parseInt(btn.dataset.goto, 10);
       searchView.clearResults();
       searchView.renderResults(state.search.result, goToPage);
-      console.log(goToPage);
    }
-   console.log(e.target);
 });
