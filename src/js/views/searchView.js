@@ -1,15 +1,15 @@
 import { elements } from './base';
 
 // Read the input field value 
-const getInput = () => elements.searchInput.value;
+export const getInput = () => elements.searchInput.value;
 
 // Reset the input field 
-const clearInput = () => {
+export const clearInput = () => {
    elements.searchInput.value = '';
 };
 
 // Remove the past result list
-const clearResults = () => {
+export const clearResults = () => {
    elements.resultList.innerHTML = '';
    elements.resultPage.innerHTML = '';
 }
@@ -32,7 +32,7 @@ const limitRecipeTitle = (title, limit = 17) => {
 }
 
 // Display results on UI
-const renderRecipe = recipe => {
+export const renderRecipe = recipe => {
    const markup = `
       <li>
          <a class="likes__link" href="#${recipe.recipe_id}">
@@ -47,7 +47,6 @@ const renderRecipe = recipe => {
       </li>
    `;
    elements.resultList.insertAdjacentHTML('beforeend', markup);
-   // elements.resultList.insertAdjacentHTML('beforeend', markup);
 };
 
 // Type: 'prev' or 'next button
@@ -60,6 +59,7 @@ const createButton = (page, type) => `
    </button>
 `;
 
+// Check for the type of button to shown in UI
 const renderButtons = (page, numResults, resPerPage) => {
    const pages = Math.ceil(numResults / resPerPage);
 
@@ -80,7 +80,7 @@ const renderButtons = (page, numResults, resPerPage) => {
 };
 
 // Iterate though result list 
-const renderResults = (recipes, page = 1, resPerPage = 10) => {
+export const renderResults = (recipes, page = 1, resPerPage = 10) => {
    // render result of current page
    const start = (page - 1) * resPerPage;
    const end = page * resPerPage;
@@ -90,13 +90,3 @@ const renderResults = (recipes, page = 1, resPerPage = 10) => {
    // call render buttons
    renderButtons(page, recipes.length, resPerPage);
 };
-
-
-// const renderResults = recipes => {
-//    recipes.forEach(renderRecipe);
-// };
-
-
-
-// Make function available to external modules
-export { getInput, renderResults, clearInput, clearResults };

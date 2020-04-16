@@ -5,6 +5,7 @@ export const elements = {
    searchResult: document.querySelector('.results'),
    resultList: document.querySelector('.results__list'),
    resultPage: document.querySelector('.results__pages'),
+   recipe: document.querySelector('.recipe')
 };
 
 // make loader string available to external modules
@@ -20,7 +21,7 @@ export const renderLoader = parent => {
             <use href="img/icons.svg#icon-cw"></use>
          </svg>
       </div>
-   `
+   `;
    parent.insertAdjacentHTML('afterbegin', loader);
 };
 

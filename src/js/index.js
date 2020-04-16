@@ -1,5 +1,7 @@
 import Search from './models/Search';
+import Recipe from './models/Recipe';
 import * as searchView from './views/searchView';
+import * as recipeView from './views/recipeView';
 import { elements, renderLoader, clearLoader } from './views/base';
 
 /*****************************
@@ -11,9 +13,13 @@ import { elements, renderLoader, clearLoader } from './views/base';
  */
 const state = {};
 
+// Search Controller 
 const controlSearch = async () => {
    // 1. Get query from view
    const query = searchView.getInput();
+
+   // TESTING - To be removed later
+   // const query = 'pizza';
 
    if (query) {
       // 2. New search object, add to state
@@ -24,12 +30,16 @@ const controlSearch = async () => {
       searchView.clearResults();
       renderLoader(elements.searchResult);
 
-      // 4. Search for recipes
-      await state.search.getResults();
-
-      // 5. Render results on UI
-      clearLoader();
-      searchView.renderResults(state.search.result);
+      try {
+         // 4. Search for recipes
+         await state.search.getResults();
+   
+         // 5. Render results on UI
+         clearLoader();
+         searchView.renderResults(state.search.result);
+      } catch (err) {
+         alert('Something went wrong with the search...');
+      }
    }
 }
 
@@ -38,6 +48,11 @@ elements.searchForm.addEventListener('submit', e => {
    controlSearch();
 });
 
+// Tesing load 
+window.addEventListener('load', e => {
+   e.preventDefault();
+   controlSearch();
+});
 
 elements.searchResult.addEventListener('click', e => {
    const btn = e.target.closest('.btn-inline');
@@ -47,3 +62,45 @@ elements.searchResult.addEventListener('click', e => {
       searchView.renderResults(state.search.result, goToPage);
    }
 });
+
+// Recipe Controller
+const controlRecipe = async () => {
+   // Get ID from url
+   const id = window.location.hash.replace('#', '');
+   console.log(id);
+   
+   if (id) {
+      // Prepare UI for changes
+      recipeView.clearRecipe();
+      renderLoader(elements.recipe);
+
+      // Create new recipe objec
+      state.recipe = new Recipe(id);
+
+      // TESTING - to be removed later
+      // window.rec = state.recipe;
+      
+      try {
+         // Get recipe data and parse the ingredient
+         await state.recipe.getRecipe();
+         state.recipe.parseIngredients();
+
+         // Caluclate prep time and servings count
+         state.recipe.calcTime();
+         state.recipe.calcServings();
+   
+         // Render recipe
+         clearLoader();
+         recipeView.renderRecipe(state.recipe);
+
+         console.log(state.recipe);
+      } catch (err) {
+         alert('Error processing recipe!');
+      }
+   }
+};
+
+// window.addEventListener('hashchange', controlRecipe);
+// window.addEventListener('load', controlRecipe);
+
+['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe));
