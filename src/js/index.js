@@ -18,9 +18,6 @@ const controlSearch = async () => {
    // 1. Get query from view
    const query = searchView.getInput();
 
-   // TESTING - To be removed later
-   // const query = 'pizza';
-
    if (query) {
       // 2. New search object, add to state
       state.search = new Search(query);
@@ -44,12 +41,6 @@ const controlSearch = async () => {
 }
 
 elements.searchForm.addEventListener('submit', e => {
-   e.preventDefault();
-   controlSearch();
-});
-
-// Tesing load 
-window.addEventListener('load', e => {
    e.preventDefault();
    controlSearch();
 });
@@ -80,9 +71,6 @@ const controlRecipe = async () => {
 
       // Create new recipe objec
       state.recipe = new Recipe(id);
-
-      // TESTING - to be removed later
-      // window.rec = state.recipe;
       
       try {
          // Get recipe data and parse the ingredient
@@ -108,3 +96,16 @@ const controlRecipe = async () => {
 // window.addEventListener('load', controlRecipe);
 
 ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe));
+
+// Handling recipe list click events
+elements.recipe.addEventListener('click', e => {
+   if (e.target.matches('.btn-decrease, .btn-decrease * ')) {
+      // Decrease button clicked
+      state.recipe.updateServings('dec');
+
+   } else if (e.target.matches('.btn-increase, btn-increase * ')) {
+      // Increase button clicked
+      state.recipe.updateServings('inc')
+   }
+   console.log(state.recipe);
+});
