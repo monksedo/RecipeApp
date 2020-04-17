@@ -12,7 +12,16 @@ export const clearInput = () => {
 export const clearResults = () => {
    elements.resultList.innerHTML = '';
    elements.resultPage.innerHTML = '';
-}
+};
+
+export const selectedBgColor = id => {
+   const resultsArr = Array.from(document.querySelectorAll('.results__link--active'));
+   resultsArr.forEach(el2 => {
+      el2.classList.remove('results__link--active');
+   });
+
+   document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active');
+};
 
 // Set the recipes titles to 17 characters
 const limitRecipeTitle = (title, limit = 17) => {

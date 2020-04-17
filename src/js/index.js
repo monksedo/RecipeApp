@@ -74,6 +74,10 @@ const controlRecipe = async () => {
       recipeView.clearRecipe();
       renderLoader(elements.recipe);
 
+      // Selected background color
+      if (state.search) searchView.selectedBgColor(id);
+
+
       // Create new recipe objec
       state.recipe = new Recipe(id);
 
