@@ -99,13 +99,16 @@ const controlRecipe = async () => {
 
 // Handling recipe list click events
 elements.recipe.addEventListener('click', e => {
-   if (e.target.matches('.btn-decrease, .btn-decrease * ')) {
+   if (e.target.matches('.btn-decrease, .btn-decrease *')) {
       // Decrease button clicked
-      state.recipe.updateServings('dec');
-
-   } else if (e.target.matches('.btn-increase, btn-increase * ')) {
+      if (state.recipe.servings > 1) {
+         state.recipe.updateServings('dec');
+         recipeView.updateIngCount(state.recipe);
+      }
+   } else if (e.target.matches('.btn-increase, .btn-increase *')) {
       // Increase button clicked
-      state.recipe.updateServings('inc')
+      state.recipe.updateServings('inc');
+      recipeView.updateIngCount(state.recipe);
    }
    console.log(state.recipe);
 });

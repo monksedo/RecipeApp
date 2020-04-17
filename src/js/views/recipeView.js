@@ -112,3 +112,15 @@ export const renderRecipe = recipe => {
 
    elements.recipe.insertAdjacentHTML('afterbegin', markup);
 };
+
+// Update UI ingredient counts
+export const updateIngCount = recipe => {
+   // Update servings
+   document.querySelector('.recipe__info-data--people').textContent = recipe.servings;
+
+   // Update ingredients
+   const elArr = Array.from(document.querySelectorAll('.recipe__count'));
+   elArr.forEach((el, i) => {
+      el.textContent = formatCount(recipe.ingredients[i].count);
+   });
+};
