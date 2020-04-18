@@ -25,7 +25,7 @@ body {
   min-height: calc(100vh - 2 * 4vw); }
 
 .container {
-  max-width: 100rem;
+  width: 95%;
   margin: 4vw auto;
   background-color: #fff;
   border-radius: 6px;
