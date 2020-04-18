@@ -16,7 +16,7 @@ import { elements, renderLoader, clearLoader } from './views/base';
 const state = {};
 window.state = state;
 
-// Search Controller 
+// SEARCH CONTROLLER
 const controlSearch = async () => {
    // 1. Get query from view
    const query = searchView.getInput();
@@ -57,7 +57,8 @@ elements.searchResult.addEventListener('click', e => {
    }
 });
 
-// Recipe Controller
+// RECIPE CONTROLLER
+
 const controlRecipe = async () => {
    // Get ID from url
    const id = window.location.hash.replace('#', '');
@@ -100,7 +101,8 @@ const controlRecipe = async () => {
 
 ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe));
 
-// List Controller
+// LIST CONTROLLER
+
 const controlList = () => {
    // Create new list if none
    if (!state.list) state.list = new List();
@@ -130,8 +132,6 @@ elements.shopping.addEventListener('click', e => {
       state.list.updateCount(id, val);
    }
 });
-
-
 
 // Handling recipe list click events
 elements.recipe.addEventListener('click', e => {
