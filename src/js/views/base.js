@@ -6,7 +6,9 @@ export const elements = {
    resultList: document.querySelector('.results__list'),
    resultPage: document.querySelector('.results__pages'),
    recipe: document.querySelector('.recipe'),
-   shopping: document.querySelector('.shopping__list')
+   shopping: document.querySelector('.shopping__list'),
+   likesMenu: document.querySelector('.likes__field'),
+   likesList: document.querySelector('.likes__list'),
 };
 
 // make loader string available to external modules
