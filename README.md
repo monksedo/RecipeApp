@@ -5,5 +5,5 @@ A homework project that using all the JavaScript concepts learned in previous se
 ![](dist/img/appscreen-01.png)
 
 ## Run Test
-[Click run](https://cnwebdev.github.io/RecipeApp/dist)
+[Click run](https://tvn9.github.io/RecipeApp/dist)
 
